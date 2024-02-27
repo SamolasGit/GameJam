@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://byiyr3dqvwrwg"]
+
+[ext_resource type="Script" path="res://Scripts/Porta.gd" id="1_m8886"]
+[ext_resource type="Texture2D" uid="uid://b2njjcq8ecv40" path="res://Sprites/icon.svg" id="2_oqoww"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pfov2"]
+size = Vector2(20, 117)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_m8886")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 48.5)
+shape = SubResource("RectangleShape2D_pfov2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.90735e-06, 48.5)
+scale = Vector2(0.171875, 0.914063)
+texture = ExtResource("2_oqoww")

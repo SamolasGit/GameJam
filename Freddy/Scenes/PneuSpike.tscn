@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://ssawnodud577"]
+
+[ext_resource type="Script" path="res://Scripts/PneuSpike.gd" id="1_qh88c"]
+[ext_resource type="Texture2D" uid="uid://d0nl470sh6skl" path="res://Sprites/Pneu.png" id="1_ukmbd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a1ntb"]
+size = Vector2(12, 12.0279)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7dbm"]
+atlas = ExtResource("1_ukmbd")
+region = Rect2(0, 0, 16, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h50i3"]
+atlas = ExtResource("1_ukmbd")
+region = Rect2(16, 0, 16, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxyan"]
+atlas = ExtResource("1_ukmbd")
+region = Rect2(32, 0, 16, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1sndn"]
+atlas = ExtResource("1_ukmbd")
+region = Rect2(48, 0, 16, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5ygj"]
+atlas = ExtResource("1_ukmbd")
+region = Rect2(64, 0, 16, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3bui"]
+atlas = ExtResource("1_ukmbd")
+region = Rect2(80, 0, 16, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_svmwy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7dbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h50i3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nxyan")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1sndn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5ygj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3bui")
+}],
+"loop": true,
+"name": &"SpikeTire",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["Spike"]]
+script = ExtResource("1_qh88c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 2.2545)
+scale = Vector2(1, 1.04)
+shape = SubResource("RectangleShape2D_a1ntb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_svmwy")
+animation = &"SpikeTire"
+autoplay = "SpikeTire"
