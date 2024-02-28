@@ -2,6 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://d0nl470sh6skl" path="res://Sprites/Pneu.png" id="1_8g0m4"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pu56h"]
+size = Vector2(61, 90)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_50n46"]
 atlas = ExtResource("1_8g0m4")
 region = Rect2(240, 0, 16, 19)
@@ -52,20 +55,16 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pu56h"]
-size = Vector2(12, 12.1)
+[node name="pneu" type="StaticBody2D" groups=["Killable"]]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4.5, -3)
+shape = SubResource("RectangleShape2D_pu56h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_csyvd")
 animation = &"PneuIdle"
 autoplay = "PneuIdle"
 frame_progress = 0.624448
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Killable"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-1, 2.45)
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_pu56h")
