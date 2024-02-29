@@ -64,3 +64,4 @@ position = Vector2(226, -44)
 scale = Vector2(5, 5)
 
 [node name="porta" parent="." instance=ExtResource("6_hktcw")]
+position = Vector2(442, -108)
