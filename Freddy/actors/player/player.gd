@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-var JumpCount = 3
+@export var JumpCount = 3
 const SPEED = 200
 const JUMP_VELOCITY = -500.0
 var dir = 1

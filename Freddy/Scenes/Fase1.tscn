@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://1jxl0xse20xd"]
+[gd_scene load_steps=8 format=3 uid="uid://1jxl0xse20xd"]
 
 [ext_resource type="PackedScene" uid="uid://y07evr6e4yfu" path="res://actors/player/player.tscn" id="1_5f47c"]
 [ext_resource type="Script" path="res://Scenes/scene.gd" id="1_qxll3"]
 [ext_resource type="PackedScene" uid="uid://dbneco8wu7pen" path="res://actors/pneu/pneu.tscn" id="2_efxfq"]
 [ext_resource type="PackedScene" uid="uid://ssawnodud577" path="res://actors/pneu/pneu_spike/PneuSpike.tscn" id="3_vby2f"]
 [ext_resource type="Texture2D" uid="uid://b2njjcq8ecv40" path="res://Sprites/icon.svg" id="4_6tdug"]
+[ext_resource type="PackedScene" uid="uid://byiyr3dqvwrwg" path="res://actors/porta/Porta.tscn" id="6_hktcw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikti2"]
 size = Vector2(1154, 20)
@@ -56,8 +57,10 @@ shape = SubResource("RectangleShape2D_ikti2")
 [node name="Inimigo" type="Node2D" parent="."]
 
 [node name="CharacterBody2D2" parent="Inimigo" instance=ExtResource("2_efxfq")]
-position = Vector2(304, -43)
+position = Vector2(-263, -43)
 
 [node name="CharacterBody2D3" parent="Inimigo" instance=ExtResource("3_vby2f")]
 position = Vector2(226, -44)
 scale = Vector2(5, 5)
+
+[node name="porta" parent="." instance=ExtResource("6_hktcw")]
