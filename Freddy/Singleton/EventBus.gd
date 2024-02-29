@@ -1,6 +1,10 @@
 extends Node
 
 signal sem_pneus
+signal pneu_furado
+
+func _ready() -> void:
+	pneu_furado.connect(checar_pneus)
 
 func checar_pneus():
 	#Aguarda até o final do frame. Quando um objeto é deletado, ele ainda fica no grupo até o final do frame

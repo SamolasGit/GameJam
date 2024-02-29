@@ -5,4 +5,5 @@ func die():
 	animation.play("Death")
 
 func end_animation() -> void:
+	EventBus.pneu_furado.emit()
 	queue_free()
