@@ -1,7 +1,10 @@
 [gd_scene load_steps=14 format=3 uid="uid://dbneco8wu7pen"]
 
-[ext_resource type="Texture2D" uid="uid://c7dodllevf47a" path="res://Sprites/Pneu.png" id="1_8g0m4"]
-[ext_resource type="Script" path="res://Scenes/Pneu1.gd" id="2_yemul"]
+[ext_resource type="Texture2D" uid="uid://c7dodllevf47a" path="res://actors/pneu/Pneu.png" id="1_8g0m4"]
+[ext_resource type="Script" path="res://actors/pneu/pneu.gd" id="2_yemul"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pu56h"]
+size = Vector2(61, 75.9)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_thljs"]
 atlas = ExtResource("1_8g0m4")
@@ -79,10 +82,14 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pu56h"]
-size = Vector2(12, 12.1)
+[node name="pneu" type="CharacterBody2D" groups=["Killable"]]
+script = ExtResource("2_yemul")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5.5, 4.95)
+shape = SubResource("RectangleShape2D_pu56h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_csyvd")
@@ -90,15 +97,5 @@ animation = &"Death"
 autoplay = "PneuIdle"
 frame = 2
 frame_progress = 1.0
-script = ExtResource("2_yemul")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Killable"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-1, 2.45)
-shape = SubResource("RectangleShape2D_pu56h")
-
-[node name="Timer" type="Timer" parent="."]
-
-[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="end_animation"]

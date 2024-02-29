@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://ssawnodud577"]
 
-[ext_resource type="Script" path="res://Player/Scripts/PneuSpike.gd" id="1_qh88c"]
-[ext_resource type="Texture2D" uid="uid://c7dodllevf47a" path="res://Sprites/Pneu.png" id="1_ukmbd"]
+[ext_resource type="Script" path="res://actors/pneu/pneu_spike/PneuSpike.gd" id="1_7hyhd"]
+[ext_resource type="Texture2D" uid="uid://c7dodllevf47a" path="res://actors/pneu/Pneu.png" id="1_ukmbd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a1ntb"]
 size = Vector2(12, 12.0279)
@@ -57,7 +57,7 @@ animations = [{
 }]
 
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["Spike"]]
-script = ExtResource("1_qh88c")
+script = ExtResource("1_7hyhd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 2.2545)

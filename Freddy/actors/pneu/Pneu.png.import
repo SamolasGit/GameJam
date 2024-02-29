@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cg3dojvw3vfgy"
-path="res://.godot/imported/FreddyWalk.png-8551edd238a35a831543b0e5f83bc3ca.ctex"
+uid="uid://c7dodllevf47a"
+path="res://.godot/imported/Pneu.png-6b0466bb8e3da68812f142fb9b263117.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/FreddyWalk.png"
-dest_files=["res://.godot/imported/FreddyWalk.png-8551edd238a35a831543b0e5f83bc3ca.ctex"]
+source_file="res://actors/pneu/Pneu.png"
+dest_files=["res://.godot/imported/Pneu.png-6b0466bb8e3da68812f142fb9b263117.ctex"]
 
 [params]
 
