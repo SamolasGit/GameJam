@@ -57,6 +57,7 @@ animations = [{
 }]
 
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["Spike"]]
+collision_mask = 2
 script = ExtResource("1_7hyhd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

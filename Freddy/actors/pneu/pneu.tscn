@@ -83,6 +83,7 @@ animations = [{
 }]
 
 [node name="pneu" type="CharacterBody2D" groups=["Killable"]]
+scale = Vector2(0.2, 0.2)
 script = ExtResource("2_yemul")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

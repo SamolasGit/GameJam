@@ -1,32 +1,31 @@
 [gd_scene load_steps=8 format=3 uid="uid://1jxl0xse20xd"]
 
-[ext_resource type="PackedScene" uid="uid://y07evr6e4yfu" path="res://actors/player/player.tscn" id="1_5f47c"]
-[ext_resource type="Script" path="res://Scenes/scene.gd" id="1_qxll3"]
-[ext_resource type="PackedScene" uid="uid://dbneco8wu7pen" path="res://actors/pneu/pneu.tscn" id="2_efxfq"]
-[ext_resource type="PackedScene" uid="uid://ssawnodud577" path="res://actors/pneu/pneu_spike/PneuSpike.tscn" id="3_vby2f"]
-[ext_resource type="Texture2D" uid="uid://b2njjcq8ecv40" path="res://Sprites/icon.svg" id="4_6tdug"]
-[ext_resource type="PackedScene" uid="uid://byiyr3dqvwrwg" path="res://actors/porta/Porta.tscn" id="6_hktcw"]
+[ext_resource type="Script" path="res://Scenes/scene.gd" id="1_bilu7"]
+[ext_resource type="PackedScene" uid="uid://y07evr6e4yfu" path="res://actors/player/player.tscn" id="2_jwytj"]
+[ext_resource type="Texture2D" uid="uid://b2njjcq8ecv40" path="res://Sprites/icon.svg" id="3_rt74s"]
+[ext_resource type="PackedScene" uid="uid://dbneco8wu7pen" path="res://actors/pneu/pneu.tscn" id="4_y83b6"]
+[ext_resource type="PackedScene" uid="uid://ssawnodud577" path="res://actors/pneu/pneu_spike/PneuSpike.tscn" id="5_bx7fi"]
+[ext_resource type="PackedScene" uid="uid://byiyr3dqvwrwg" path="res://actors/porta/Porta.tscn" id="6_a4qxt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikti2"]
 size = Vector2(1154, 20)
 
 [node name="World" type="Node2D"]
-script = ExtResource("1_qxll3")
+script = ExtResource("1_bilu7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -161)
 zoom = Vector2(0.877, 0.877)
 
-[node name="player" parent="." instance=ExtResource("1_5f47c")]
+[node name="player" parent="." instance=ExtResource("2_jwytj")]
 position = Vector2(-541, -81)
-scale = Vector2(5, 5)
 
 [node name="ground" type="StaticBody2D" parent="."]
 
 [node name="Icon" type="Sprite2D" parent="ground"]
 position = Vector2(-11, 64)
 scale = Vector2(9.4375, 1)
-texture = ExtResource("4_6tdug")
+texture = ExtResource("3_rt74s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground"]
 position = Vector2(0, 10)
@@ -37,12 +36,12 @@ shape = SubResource("RectangleShape2D_ikti2")
 [node name="Icon2" type="Sprite2D" parent="walls"]
 position = Vector2(656, -94)
 scale = Vector2(1, 3.76563)
-texture = ExtResource("4_6tdug")
+texture = ExtResource("3_rt74s")
 
 [node name="Icon3" type="Sprite2D" parent="walls"]
 position = Vector2(-643, -94)
 scale = Vector2(1, 3.76563)
-texture = ExtResource("4_6tdug")
+texture = ExtResource("3_rt74s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="walls"]
 position = Vector2(593, 28)
@@ -56,12 +55,12 @@ shape = SubResource("RectangleShape2D_ikti2")
 
 [node name="Inimigo" type="Node2D" parent="."]
 
-[node name="CharacterBody2D2" parent="Inimigo" instance=ExtResource("2_efxfq")]
+[node name="CharacterBody2D2" parent="Inimigo" instance=ExtResource("4_y83b6")]
 position = Vector2(-263, -43)
 
-[node name="CharacterBody2D3" parent="Inimigo" instance=ExtResource("3_vby2f")]
+[node name="CharacterBody2D3" parent="Inimigo" instance=ExtResource("5_bx7fi")]
 position = Vector2(226, -44)
 scale = Vector2(5, 5)
 
-[node name="porta" parent="." instance=ExtResource("6_hktcw")]
+[node name="porta" parent="." instance=ExtResource("6_a4qxt")]
 position = Vector2(442, -108)

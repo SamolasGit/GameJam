@@ -2,18 +2,37 @@ extends CharacterBody2D
 class_name Player
 
 @export var JumpCount = 3
-const SPEED = 200
-const JUMP_VELOCITY = -500.0
+const SPEED = 55
+const JUMP_VELOCITY = -280.0
 var dir = 1
 var gravity = 980
+var gameStarted = false
 @onready var Animator = $AnimatedSprite2D
 
 signal pulou
 
 func _ready() -> void:
+	if get_parent().name == "Fase2":
+		JumpCount = 4
+	elif get_parent().name == "Fase1":
+		JumpCount = 2
+	elif get_parent().name == "Fase4":
+		JumpCount = 5
+	elif get_parent().name == "Fase5":
+		JumpCount = 6
 	pulou.emit()
+ 
 
 func _physics_process(delta):
+	if gameStarted:
+		Engine.time_scale = 1
+	else:
+		Engine.time_scale = 0
+		
+	if Input.is_anything_pressed():
+		gameStarted = true
+	if Input.is_key_label_pressed(KEY_R):
+		get_tree().reload_current_scene()
 	if is_on_wall(): 
 		dir *= -1
 		Animator.flip_h = !Animator.flip_h

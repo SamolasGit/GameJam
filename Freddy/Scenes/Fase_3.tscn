@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://6jr20lq0q1kw"]
+
+[ext_resource type="Texture2D" uid="uid://dcabm51c303qt" path="res://Sprites/Tijolo.png" id="1_r5eoc"]
+[ext_resource type="PackedScene" uid="uid://byiyr3dqvwrwg" path="res://actors/porta/Porta.tscn" id="2_f1n0g"]
+[ext_resource type="PackedScene" uid="uid://dbneco8wu7pen" path="res://actors/pneu/pneu.tscn" id="3_t5a4y"]
+[ext_resource type="PackedScene" uid="uid://y07evr6e4yfu" path="res://actors/player/player.tscn" id="4_u31ru"]
+[ext_resource type="PackedScene" uid="uid://ssawnodud577" path="res://actors/pneu/pneu_spike/PneuSpike.tscn" id="5_na8k5"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wd4xu"]
+texture = ExtResource("1_r5eoc")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_ph4kt"]
+physics_layer_0/collision_layer = 2
+sources/0 = SubResource("TileSetAtlasSource_wd4xu")
+
+[node name="Fase3" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+tile_set = SubResource("TileSet_ph4kt")
+format = 2
+layer_0/tile_data = PackedInt32Array(262135, 0, 0, 262136, 0, 0, 262137, 0, 0, 327673, 0, 0, 327672, 0, 0, 327671, 0, 0, 196616, 0, 0, 262152, 0, 0, 262151, 0, 0, 262148, 0, 0, 262145, 0, 0, 262144, 0, 0, 262138, 0, 0, 327674, 0, 0, 327675, 0, 0, 262139, 0, 0, 327678, 0, 0, 327677, 0, 0, 262147, 0, 0, 262150, 0, 0, 131080, 0, 0, 65544, 0, 0, 8, 0, 0, -65528, 0, 0, -131064, 0, 0, -196600, 0, 0, -262136, 0, 0, -327672, 0, 0, 65527, 0, 0, -9, 0, 0, -65545, 0, 0, -131081, 0, 0, -196617, 0, 0, -262153, 0, 0, 262149, 0, 0, 262146, 0, 0, 327679, 0, 0, 327676, 0, 0, 262140, 0, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+
+[node name="porta" parent="." instance=ExtResource("2_f1n0g")]
+z_index = -1
+position = Vector2(-137, 10)
+scale = Vector2(-0.274051, 0.368865)
+
+[node name="pneu" parent="." instance=ExtResource("3_t5a4y")]
+position = Vector2(122, 55)
+
+[node name="player" parent="." instance=ExtResource("4_u31ru")]
+position = Vector2(-112, 32)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("5_na8k5")]
+position = Vector2(109, 55)
