@@ -11,13 +11,18 @@ config_version=5
 [application]
 
 config/name="Freddy"
-run/main_scene="res://Scenes/Fase_1.tscn"
+run/main_scene="res://Scenes/menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://Sprites/icon.svg"
 
 [autoload]
 
 EventBus="*res://Singleton/EventBus.gd"
+
+[display]
+
+window/size/mode=3
+window/stretch/mode="canvas_items"
 
 [input]
 

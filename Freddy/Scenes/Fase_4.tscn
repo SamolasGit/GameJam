@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bspjsltxvjlej"]
+[gd_scene load_steps=10 format=3 uid="uid://bspjsltxvjlej"]
 
 [ext_resource type="Texture2D" uid="uid://dcabm51c303qt" path="res://Sprites/Tijolo.png" id="1_vd138"]
+[ext_resource type="Texture2D" uid="uid://nigsmtkuqc86" path="res://Scenes/Ceu.png" id="1_w7l0s"]
 [ext_resource type="PackedScene" uid="uid://byiyr3dqvwrwg" path="res://actors/porta/Porta.tscn" id="2_7pis3"]
 [ext_resource type="PackedScene" uid="uid://dbneco8wu7pen" path="res://actors/pneu/pneu.tscn" id="3_d4fgf"]
 [ext_resource type="PackedScene" uid="uid://y07evr6e4yfu" path="res://actors/player/player.tscn" id="4_tirxg"]
+[ext_resource type="PackedScene" uid="uid://blokpddfs3sbr" path="res://Scenes/portal.tscn" id="5_68nib"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wd4xu"]
 texture = ExtResource("1_vd138")
@@ -16,7 +18,16 @@ texture = ExtResource("1_vd138")
 physics_layer_0/collision_layer = 2
 sources/0 = SubResource("TileSetAtlasSource_wd4xu")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jidr1"]
+size = Vector2(288, 20)
+
 [node name="Fase4" type="Node2D"]
+
+[node name="Ceu" type="Sprite2D" parent="."]
+z_index = -2
+texture_filter = 1
+position = Vector2(47, 4)
+texture = ExtResource("1_w7l0s")
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -25,7 +36,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(262135, 0, 0, 262136, 0, 0, 262137, 0, 0, 327673, 0, 0, 327672, 0, 0, 327671, 0, 0, 196616, 0, 0, 262152, 0, 0, 262151, 0, 0, 262148, 0, 0, 262138, 0, 0, 327674, 0, 0, 327675, 0, 0, 262139, 0, 0, 262147, 0, 0, 262150, 0, 0, 8, 0, 0, -65528, 0, 0, -131064, 0, 0, -196600, 0, 0, -262136, 0, 0, -327672, 0, 0, 65527, 0, 0, -9, 0, 0, -65545, 0, 0, -131081, 0, 0, -196617, 0, 0, -262153, 0, 0, 262149, 0, 0, 327676, 0, 0, 262140, 0, 0, 262143, 0, 0, 327679, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196608, 0, 0, 262144, 0, 0, 196614, 0, 0, 196615, 0, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(4, 4)
+zoom = Vector2(4.1, 4.1)
 
 [node name="porta" parent="." instance=ExtResource("2_7pis3")]
 z_index = -1
@@ -37,3 +48,19 @@ position = Vector2(1, 39)
 
 [node name="player" parent="." instance=ExtResource("4_tirxg")]
 position = Vector2(-112, 32)
+
+[node name="Portal" parent="." instance=ExtResource("5_68nib")]
+position = Vector2(-147, 37)
+
+[node name="Area2D" type="Area2D" parent="." groups=["Spike"]]
+position = Vector2(-1, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 69)
+shape = SubResource("RectangleShape2D_jidr1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(154, 53)
+rotation = 1.55946
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_jidr1")

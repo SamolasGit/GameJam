@@ -1,6 +1,6 @@
 extends CharacterBody2D
 class_name Player
-
+@onready var SoundPlayer = $AudioStreamPlayer2D
 @export var JumpCount = 3
 const SPEED = 55
 const JUMP_VELOCITY = -280.0
@@ -39,10 +39,13 @@ func _physics_process(delta):
 	velocity.x = dir * SPEED
 	if !is_on_floor():
 		velocity.y += gravity * delta
+		
 		Animator.play("Jump")
 	else:
 		Animator.play("Walk")
 		if Input.is_action_just_pressed("Jump") and JumpCount > 0:
+			if !SoundPlayer.playing: 
+				SoundPlayer.play()
 			velocity.y += JUMP_VELOCITY 
 			JumpCount -= 1
 			pulou.emit()
@@ -52,4 +55,12 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("Killable"):
 		body.die()
 	elif body.is_in_group("Spike"):
-		queue_free()
+		print(1)
+		get_tree().reload_current_scene()
+
+
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("Spike"):
+		print(1)
+		get_tree().reload_current_scene()
+

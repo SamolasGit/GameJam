@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://blokpddfs3sbr"]
+
+[ext_resource type="Script" path="res://Scenes/Portal.gd" id="1_6ykmh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jc7kq"]
+
+[node name="Portal" type="Area2D"]
+script = ExtResource("1_6ykmh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jc7kq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

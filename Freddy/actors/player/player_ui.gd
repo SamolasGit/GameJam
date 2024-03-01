@@ -7,4 +7,4 @@ func _ready() -> void:
 	player.pulou.connect(jump_text)
 
 func jump_text():
-	jumps.text = "Jumps: %s" % player.JumpCount
+	jumps.text = str(player.JumpCount)
